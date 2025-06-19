@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SochAI-Tool</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1E1E2F;
+            color: #EAEAEA;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2B2D42;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #EAEAEA;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section Headers */
+        .section-header {
+            color: #FFD700;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: #FFD700;
+        }
+
+        /* Tools Grid Layout */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Tool Card Styles */
+        .tool-card {
+            background-color: #3A3D5B;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tool-card:hover {
+            background-color: #FFD700;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .tool-card:hover h2,
+        .tool-card:hover p {
+            color: #1E1E2F;
+        }
+
+        .tool-card h2 {
+            color: #FFD700;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .tool-card .ai-badge {
+            background-color: #1E1E2F;
+            color: #FFD700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .tool-card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #1E1E2F;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            font-size: 1rem;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background-color: #E6C200;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2B2D42;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            color: #EAEAEA;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 1rem;
+            }
+
+            .tool-card {
+                padding: 1.25rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.2rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SochAI-Tool</h1>
+            <p>Your all-in-one solution for digital tools and cutting-edge AI utilities</p>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="section-header">Essential Tools</h2>
+        <div class="tools-grid">
+            <!-- Image Converter -->
+            <div class="tool-card">
+                <h2>Image Converter</h2>
+                <p>Convert your images between different formats like JPG, PNG, WEBP, and more with just a few clicks.</p>
+                <button class="btn" onclick="redirectToTool('Image Converter')">Use Tool</button>
+            </div>
+
+            <!-- Image Compressor -->
+            <div class="tool-card">
+                <h2>Image Compressor</h2>
+                <p>Reduce the file size of your images without significant quality loss, perfect for web optimization.</p>
+                <button class="btn" onclick="redirectToTool('Image Compressor')">Use Tool</button>
+            </div>
+
+            <!-- Image Crop -->
+            <div class="tool-card">
+                <h2>Image Crop</h2>
+                <p>Crop your images to the perfect size and aspect ratio for social media, websites, or personal use.</p>
+                <button class="btn" onclick="redirectToTool('Image Crop')">Use Tool</button>
+            </div>
+
+            <!-- Video Converter -->
+            <div class="tool-card">
+                <h2>Video Converter</h2>
+                <p>Convert videos between various formats including MP4, AVI, MOV, and more with high quality output.</p>
+                <button class="btn" onclick="redirectToTool('Video Converter')">Use Tool</button>
+            </div>
+
+            <!-- Age Calculator -->
+            <div class="tool-card">
+                <h2>Age Calculator</h2>
+                <p>Calculate your exact age in years, months, and days based on your birth date and current date.</p>
+                <button class="btn" onclick="redirectToTool('Age Calculator')">Use Tool</button>
+            </div>
+
+            <!-- EMI Calculator -->
+            <div class="tool-card">
+                <h2>EMI Calculator</h2>
+                <p>Calculate your Equated Monthly Installment for loans with principal amount, interest rate, and tenure.</p>
+                <button class="btn" onclick="redirectToTool('EMI Calculator')">Use Tool</button>
+            </div>
+
+            <!-- SIP Calculator -->
+            <div class="tool-card">
+                <h2>SIP Calculator</h2>
+                <p>Plan your Systematic Investment Plan returns with our easy-to-use SIP return calculator.</p>
+                <button class="btn" onclick="redirectToTool('SIP Calculator')">Use Tool</button>
+            </div>
+
+            <!-- Audio Trim -->
+            <div class="tool-card">
+                <h2>Audio Trim</h2>
+                <p>Trim your audio files to remove unwanted parts or create perfect sound clips for your projects.</p>
+                <button class="btn" onclick="redirectToTool('Audio Trim')">Use Tool</button>
+            </div>
+        </div>
+
+        <h2 class="section-header">Viral AI Tools</h2>
+        <div class="tools-grid">
+            <!-- AI Image Generator -->
+            <div class="tool-card">
+                <h2>AI Image Generator <span class="ai-badge">AI</span></h2>
+                <p>Create stunning images from text prompts using advanced generative AI technology.</p>
+                <button class="btn" onclick="redirectToTool('AI Image Generator')">Generate Now</button>
+            </div>
+
+            <!-- AI Background Remover -->
+            <div class="tool-card">
+                <h2>AI Background Remover <span class="ai-badge">AI</span></h2>
+                <p>Instantly remove backgrounds from images with perfect precision using AI.</p>
+                <button class="btn" onclick="redirectToTool('AI Background Remover')">Remove Background</button>
+            </div>
+
+            <!-- AI Photo Enhancer -->
+            <div class="tool-card">
+                <h2>AI Photo Enhancer <span class="ai-badge">AI</span></h2>
+                <p>Transform low-quality photos into high-resolution masterpieces with AI-powered enhancement.</p>
+                <button class="btn" onclick="redirectToTool('AI Photo Enhancer')">Enhance Photos</button>
+            </div>
+
+            <!-- AI Text to Speech -->
+            <div class="tool-card">
+                <h2>AI Text to Speech <span class="ai-badge">AI</span></h2>
+                <p>Convert any text to natural-sounding speech with multiple voice options and languages.</p>
+                <button class="btn" onclick="redirectToTool('AI Text to Speech')">Try Now</button>
+            </div>
+
+            <!-- AI Chat Assistant -->
+            <div class="tool-card">
+                <h2>AI Chat Assistant <span class="ai-badge">AI</span></h2>
+                <p>Get instant answers to your questions with our powerful AI chatbot.</p>
+                <button class="btn" onclick="redirectToTool('AI Chat Assistant')">Chat Now</button>
+            </div>
+
+            <!-- AI Video Upscaler -->
+            <div class="tool-card">
+                <h2>AI Video Upscaler <span class="ai-badge">AI</span></h2>
+                <p>Enhance your videos to 4K resolution with AI-powered upscaling technology.</p>
+                <button class="btn" onclick="redirectToTool('AI Video Upscaler')">Upscale Video</button>
+            </div>
+
+            <!-- AI Content Writer -->
+            <div class="tool-card">
+                <h2>AI Content Writer <span class="ai-badge">AI</span></h2>
+                <p>Generate high-quality articles, blog posts, and marketing copy in seconds.</p>
+                <button class="btn" onclick="redirectToTool('AI Content Writer')">Write Content</button>
+            </div>
+
+            <!-- AI Code Generator -->
+            <div class="tool-card">
+                <h2>AI Code Generator <span class="ai-badge">AI</span></h2>
+                <p>Generate code snippets in multiple programming languages with AI assistance.</p>
+                <button class="btn" onclick="redirectToTool('AI Code Generator')">Generate Code</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 SochAI-Tool. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for button click functionality
+        function redirectToTool(toolName) {
+            alert(`Redirecting to ${toolName}...`);
+            // In a real implementation, you would redirect to the actual tool page
+            // window.location.href = `/${toolName.toLowerCase().replace(/ /g, '-')}`;
+        }
+
+        // Optional: Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
